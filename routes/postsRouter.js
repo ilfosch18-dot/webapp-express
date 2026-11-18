@@ -29,4 +29,18 @@ router.post("/", (req, res) => {
   res.send(`Creo un nuovo post`);
 });
 
+////////////////// PUT - modifica intera di un elemento preciso tramite ID (update)
+router.put("/:id", (req, res) => {
+  // utilizzo Number per convertire l'id da stringa a numero
+  const id = Number(req.params.id);
+  res.send(`Modifica di un elemento con id ${id}`);
+});
+
+////////////////// PATCH - modifica parziale di un elemento preciso tramite ID (update)
+router.patch("/:id", (req, res) => {
+  // utilizzo Number per convertire l'id da stringa a numero
+  const id = Number(req.params.id);
+  res.send(`Modifica parziale di un elemento con id ${id}`);
+});
+
 export default router;
