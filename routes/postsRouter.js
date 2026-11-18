@@ -15,4 +15,10 @@ router.get("/", (req, res) => {
   res.send("Lista dei posts");
 });
 
+// SHOW - visualizzazione dettaglio di un singolo e preciso ID
+router.get("/:id", (req, res) => {
+  const id = req.params.id;
+  res.send(`Dettaglio del post con id ${id}`);
+});
+
 export default router;
