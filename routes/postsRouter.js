@@ -36,21 +36,21 @@ router.post("/", (req, res) => {
 router.put("/:id", (req, res) => {
   // utilizzo Number per convertire l'id da stringa a numero
   const id = Number(req.params.id);
-  res.send(`Modifica di un elemento con id ${id}`);
+  res.send(`Modifica di un post con id ${id}`);
 });
 
 ////////////////// PATCH - modifica parziale di un elemento preciso tramite ID (update)
 router.patch("/:id", (req, res) => {
   // utilizzo Number per convertire l'id da stringa a numero
   const id = Number(req.params.id);
-  res.send(`Modifica parziale di un elemento con id ${id}`);
+  res.send(`Modifica parziale di un post con id ${id}`);
 });
 
 ////////////////// DELETE - cancellazione di un elemento preciso tramite ID (delete/destroy)
 router.delete("/:id", (req, res) => {
   // utilizzo Number per convertire l'id da stringa a numero
   const id = Number(req.params.id);
-  res.send(`Cancellazione di un elemento con id ${id}`);
+  res.send(`Cancellazione di un post con id ${id}`);
 });
 
 export default router;
