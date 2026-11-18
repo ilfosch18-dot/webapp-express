@@ -1,2 +1,5 @@
 node_modules
 .env
+
+## file nascosti, solo su macOS
+.DS_Store
