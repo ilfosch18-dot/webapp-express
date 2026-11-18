@@ -3,3 +3,4 @@ node_modules
 
 ## file nascosti, solo su macOS
 .DS_Store
+/generated/prisma
