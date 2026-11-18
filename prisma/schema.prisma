@@ -11,3 +11,24 @@ generator client {
 datasource db {
   provider = "mysql"
 }
+
+////////////////// MODELLI
+model Post {
+  id          Int      @id @default(autoincrement())
+  title       String   @unique
+  description String?  @db.Text
+  author      String   @db.TinyText
+  isPublic    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  category    Category @relation(fields: [categoryId], references: [id])
+  categoryId  Int
+}
+
+model Category {
+  id        Int      @id @default(autoincrement())
+  title     String   @unique
+  posts     Post[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
