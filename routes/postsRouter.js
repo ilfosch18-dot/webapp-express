@@ -8,9 +8,12 @@ const router = express.Router();
  * R read
  * U update
  * D destroy/delete
+ *
+ * INDEX - SHOW - STORE - UPDATE - DESTROY sono i nomi delle rotte
+ * GET - POST - PUT/PATCH - DELETE sono i metodi http
  */
 
-////////////////// GET - visualizzazione di tutti gli elementi (read)
+////////////////// INDEX - visualizzazione di tutti gli elementi (read)
 router.get("/", (req, res) => {
   res.send("Lista dei posts");
 });
@@ -41,6 +44,13 @@ router.patch("/:id", (req, res) => {
   // utilizzo Number per convertire l'id da stringa a numero
   const id = Number(req.params.id);
   res.send(`Modifica parziale di un elemento con id ${id}`);
+});
+
+////////////////// DELETE - cancellazione di un elemento preciso tramite ID (delete/destroy)
+router.delete("/:id", (req, res) => {
+  // utilizzo Number per convertire l'id da stringa a numero
+  const id = Number(req.params.id);
+  res.send(`Cancellazione di un elemento con id ${id}`);
 });
 
 export default router;
