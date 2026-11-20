@@ -1,6 +1,8 @@
 ////////////////// IMPORTO express
 import express from "express";
 import postsRouter from "./routes/postsRouter.js";
+import errorNotFound from "./middlewares/errorNotFound.js";
+import errors500 from "./middlewares/errors500.js";
 
 ////////////////// SETUP - app è l'oggetto principale attraverso cui configuro il server
 const app = express();
@@ -12,12 +14,15 @@ app.use(express.json());
 
 ////////////////// ROUTES - get è un metodo HTTP
 app.get("/", (req, res) => {
-  // invio una risposta dal server al client
   res.send("Homepage");
 });
 
-//////////////////
+////////////////// resitrazione rotta posts
 app.use("/posts", postsRouter);
+
+// middlewares per gestione errori
+app.use(errorNotFound);
+app.use(errors500);
 
 ////////////////// AVVIO SERVER
 app.listen(port, () => {
